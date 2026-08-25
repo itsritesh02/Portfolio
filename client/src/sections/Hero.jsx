@@ -39,7 +39,7 @@ const Hero = () => {
 
           <div className="hero-socials">
             <a
-              href="https://github.com/"
+              href="https://github.com/itsritesh02"
               target="_blank"
               rel="noreferrer"
             >
@@ -47,12 +47,14 @@ const Hero = () => {
             </a>
 
             <a
-              href="https://linkedin.com/"
+              href="https://www.linkedin.com/in/ritesh-kumar-2707b2413/"
               target="_blank"
               rel="noreferrer"
             >
               LinkedIn
             </a>
+
+
           </div>
         </div>
 

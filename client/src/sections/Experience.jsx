@@ -5,7 +5,10 @@ const Experience = () => {
 
         <div className="section-heading">
           <p>EXPERIENCE</p>
-          <h2>My professional <span>journey</span></h2>
+
+          <h2>
+            My professional <span>journey</span>
+          </h2>
         </div>
 
         <div className="experience-wrapper">
@@ -15,63 +18,77 @@ const Experience = () => {
             <div className="experience-dot"></div>
 
             <div className="experience-date">
-              2024 — Present
+              2 Years Experience
             </div>
 
             <div className="experience-content">
 
               <div className="experience-header">
+
                 <div>
                   <h3>MERN Stack Developer</h3>
-                  <h4>Software Development</h4>
+
+                  <h4>
+                    Arbaj Technology
+                  </h4>
                 </div>
 
                 <span className="experience-badge">
                   Full Stack
                 </span>
+
               </div>
 
               <p>
-                Working on modern full-stack web applications using
-                MongoDB, Express.js, React.js and Node.js.
+                Working as a MERN Stack Developer, building responsive
+                and scalable web applications using modern frontend and
+                backend technologies.
               </p>
 
               <ul>
                 <li>
-                  Developed responsive and reusable React components
-                  for modern web interfaces.
+                  Developed responsive and reusable React.js components
+                  for modern web applications.
                 </li>
 
                 <li>
-                  Built RESTful APIs using Node.js and Express.js.
+                  Built and integrated RESTful APIs using Node.js and
+                  Express.js.
                 </li>
 
                 <li>
-                  Integrated MongoDB with backend applications using
-                  Mongoose.
+                  Designed and managed MongoDB databases using Mongoose.
                 </li>
 
                 <li>
-                  Implemented CRUD operations, authentication and
-                  API validation.
+                  Implemented authentication, authorization and CRUD
+                  operations.
                 </li>
 
                 <li>
-                  Worked with Git/GitHub and deployed applications
-                  using modern deployment platforms.
+                  Integrated third-party services such as Cloudinary
+                  and email services.
+                </li>
+
+                <li>
+                  Worked with Git and GitHub for version control and
+                  collaborative development.
                 </li>
               </ul>
 
               <div className="experience-tech">
                 <span>React.js</span>
+                <span>JavaScript</span>
                 <span>Node.js</span>
                 <span>Express.js</span>
                 <span>MongoDB</span>
                 <span>JWT</span>
                 <span>REST API</span>
+                <span>Git</span>
               </div>
 
             </div>
+
           </div>
 
         </div>

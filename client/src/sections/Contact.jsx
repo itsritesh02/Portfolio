@@ -28,28 +28,14 @@ const Contact = () => {
     event.preventDefault();
 
     setLoading(true);
+
     setStatus({
       type: "",
       message: "",
     });
 
     try {
-      const response = await fetch(
-        "http://localhost:5000/api/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Something went wrong");
-      }
+      await sendContactMessage(formData);
 
       setStatus({
         type: "success",
