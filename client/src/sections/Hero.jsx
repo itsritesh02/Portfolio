@@ -1,0 +1,62 @@
+const Hero = () => {
+  return (
+    <section id="home" className="hero">
+      <div className="container hero-container">
+
+        <div className="hero-content">
+          <p className="hero-intro">Hello, I'm</p>
+
+          <h1>
+            Ritesh Kumar
+          </h1>
+
+          <h2>
+            MERN Stack <span>Developer</span>
+          </h2>
+
+          <p className="hero-description">
+            I build modern, responsive and scalable web applications
+            using MongoDB, Express.js, React.js and Node.js.
+          </p>
+
+          <div className="hero-buttons">
+            <a href="#projects" className="btn primary-btn">
+              View Projects
+            </a>
+
+            <a href="#contact" className="btn secondary-btn">
+              Contact Me
+            </a>
+          </div>
+
+          <div className="hero-socials">
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div className="hero-image-wrapper">
+          <div className="hero-image">
+            <div className="code-icon">&lt;/&gt;</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
