@@ -27,6 +27,14 @@ const Hero = () => {
             <a href="#contact" className="btn secondary-btn">
               Contact Me
             </a>
+            <a
+              href="/resume/Ritesh-Kumar-Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="btn secondary-btn"
+            >
+              Download Resume
+            </a>
           </div>
 
           <div className="hero-socials">
