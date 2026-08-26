@@ -1,11 +1,13 @@
 import ProjectCard from "../components/ProjectCard";
-
+import "./Projects.css";
 const Projects = () => {
   const projects = [
     {
       number: "01",
       title: "Club Management System",
       category: "Full Stack MERN",
+
+      image: "/projects/club-management.png",
 
       description:
         "A full-stack club management platform with admin authentication, OTP verification, member management, CRUD operations, protected routes and REST APIs.",
@@ -28,6 +30,8 @@ const Projects = () => {
       title: "ElectroMart",
       category: "E-Commerce",
 
+      image: "/projects/electromart.png",
+
       description:
         "A full-stack e-commerce application focused on product management, responsive UI, REST API integration, database operations and scalable backend architecture.",
 
@@ -47,6 +51,8 @@ const Projects = () => {
       number: "03",
       title: "Arbaj Technology",
       category: "Company Website",
+
+      image: "/projects/arbaj-technology.png",
 
       description:
         "A professional company website developed to present services, company information and business offerings through a modern responsive web interface.",
@@ -76,9 +82,9 @@ const Projects = () => {
         </div>
 
         <div className="projects-grid">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <ProjectCard
-              key={index}
+              key={project.number}
               project={project}
             />
           ))}
