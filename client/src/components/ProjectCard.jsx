@@ -1,32 +1,44 @@
+import "./ProjectCard.css";
+
 const ProjectCard = ({ project }) => {
   return (
     <article className="project-card">
 
+      {/* PROJECT IMAGE */}
       <div className="project-image">
 
-        <img
-          src={project.image}
-          alt={`${project.title} project`}
-          loading="lazy"
-        />
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={`${project.title} project`}
+            loading="lazy"
+          />
+        ) : (
+          <div className="project-image-placeholder">
+            <span>&lt;/&gt;</span>
+          </div>
+        )}
+
+        <div className="project-gradient"></div>
+
+        <div className="project-number">
+          {project.number}
+        </div>
 
         <div className="project-overlay">
           <a
             href={project.live}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="project-view-btn"
           >
             View Live ↗
           </a>
         </div>
 
-        <div className="project-number">
-          {project.number}
-        </div>
-
       </div>
 
+      {/* PROJECT CONTENT */}
       <div className="project-content">
 
         <div className="project-top">
@@ -40,7 +52,8 @@ const ProjectCard = ({ project }) => {
             <a
               href={project.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label={`View ${project.title} GitHub`}
             >
               GitHub ↗
             </a>
@@ -48,7 +61,8 @@ const ProjectCard = ({ project }) => {
             <a
               href={project.live}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label={`View ${project.title} live`}
             >
               Live ↗
             </a>
