@@ -1,9 +1,10 @@
+import "./Hero.css";
+
 const Hero = () => {
   return (
     <section id="home" className="hero">
       <div className="container hero-container">
 
-        {/* LEFT CONTENT */}
         <div className="hero-content">
 
           <p className="hero-intro">
@@ -24,13 +25,9 @@ const Hero = () => {
             applications using React.js, Node.js, Express.js, and MongoDB.
           </p>
 
-          {/* BUTTONS */}
           <div className="hero-buttons">
 
-            <a
-              href="#projects"
-              className="btn primary-btn"
-            >
+            <a href="#projects" className="btn primary-btn">
               View Projects
             </a>
 
@@ -43,16 +40,12 @@ const Hero = () => {
               Download Resume
             </a>
 
-            <a
-              href="#contact"
-              className="btn secondary-btn"
-            >
+            <a href="#contact" className="btn secondary-btn">
               Contact Me
             </a>
 
           </div>
 
-          {/* SOCIAL LINKS */}
           <div className="hero-socials">
 
             <a
@@ -71,9 +64,7 @@ const Hero = () => {
               LinkedIn ↗
             </a>
 
-            <a
-              href="mailto:itsritesh02@gmail.com"
-            >
+            <a href="mailto:itsritesh02@gmail.com">
               Email ↗
             </a>
 
@@ -81,17 +72,12 @@ const Hero = () => {
 
         </div>
 
-        {/* RIGHT VISUAL */}
         <div className="hero-image-wrapper">
-
           <div className="hero-image">
-
             <div className="code-icon">
               &lt;/&gt;
             </div>
-
           </div>
-
         </div>
 
       </div>
