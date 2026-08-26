@@ -1,3 +1,5 @@
+import "./Education.css";
+
 const Education = () => {
   return (
     <section id="education" className="education section">
