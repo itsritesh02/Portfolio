@@ -23,6 +23,25 @@
     background 0.35s ease,
     border-color 0.35s ease,
     box-shadow 0.35s ease;
+
+  /* LOAD ANIMATION */
+  animation: navbarSlideDown 0.8s ease-out both;
+}
+
+/* =========================================
+   NAVBAR LOAD ANIMATION
+========================================= */
+
+@keyframes navbarSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================================
@@ -68,6 +87,21 @@
   transition:
     transform 0.3s ease,
     color 0.3s ease;
+
+  /* LOGO ANIMATION */
+  animation: logoReveal 0.8s ease-out 0.2s both;
+}
+
+@keyframes logoReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .logo span {
@@ -91,6 +125,54 @@
   list-style: none;
 }
 
+/* Each link animation */
+
+.nav-links li {
+  animation: navLinkReveal 0.6s ease-out both;
+}
+
+/* Stagger animation */
+
+.nav-links li:nth-child(1) {
+  animation-delay: 0.25s;
+}
+
+.nav-links li:nth-child(2) {
+  animation-delay: 0.32s;
+}
+
+.nav-links li:nth-child(3) {
+  animation-delay: 0.39s;
+}
+
+.nav-links li:nth-child(4) {
+  animation-delay: 0.46s;
+}
+
+.nav-links li:nth-child(5) {
+  animation-delay: 0.53s;
+}
+
+.nav-links li:nth-child(6) {
+  animation-delay: 0.60s;
+}
+
+.nav-links li:nth-child(7) {
+  animation-delay: 0.67s;
+}
+
+@keyframes navLinkReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .nav-links a {
   position: relative;
 
@@ -103,11 +185,15 @@
   font-size: 14px;
   font-weight: 600;
 
-  transition: color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .nav-links a:hover {
   color: #00d9ff;
+
+  transform: translateY(-2px);
 }
 
 /* =========================================
@@ -209,6 +295,20 @@
 
   .menu-btn {
     display: block;
+
+    animation: menuReveal 0.7s ease-out 0.25s both;
+  }
+
+  @keyframes menuReveal {
+    from {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   .nav-links {
@@ -249,8 +349,58 @@
     transform: translateY(0);
   }
 
+  /* Mobile menu me stagger animation reset */
   .nav-links li {
     width: 100%;
+
+    opacity: 1;
+    transform: none;
+
+    animation: none;
+  }
+
+  .nav-links.open li {
+    animation: mobileLinkReveal 0.4s ease both;
+  }
+
+  .nav-links.open li:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .nav-links.open li:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .nav-links.open li:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+
+  .nav-links.open li:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+
+  .nav-links.open li:nth-child(5) {
+    animation-delay: 0.25s;
+  }
+
+  .nav-links.open li:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+
+  .nav-links.open li:nth-child(7) {
+    animation-delay: 0.35s;
+  }
+
+  @keyframes mobileLinkReveal {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   .nav-links a {
@@ -287,5 +437,23 @@
 
   .logo {
     font-size: 25px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .logo,
+  .nav-links li,
+  .menu-btn {
+    animation: none;
+  }
+
+  .nav-links a,
+  .logo {
+    transition: none;
   }
 }

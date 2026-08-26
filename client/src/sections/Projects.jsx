@@ -1,5 +1,8 @@
 import ProjectCard from "../components/ProjectCard";
 import "./Projects.css";
+import Club from "../assets/images/Club.png";
+import Arbaj from "../assets/images/Arbaj.png";
+import ElectroMart from "../assets/images/ElectroMart.png";
 const Projects = () => {
   const projects = [
     {
@@ -7,7 +10,7 @@ const Projects = () => {
       title: "Club Management System",
       category: "Full Stack MERN",
 
-      image: "/projects/club-management.png",
+      image: Club,
 
       description:
         "A full-stack club management platform with admin authentication, OTP verification, member management, CRUD operations, protected routes and REST APIs.",
@@ -22,7 +25,7 @@ const Projects = () => {
       ],
 
       github: "https://github.com/itsritesh02",
-      live: "https://club-management-lilac.vercel.app/",
+      live: "https://github.com/itsritesh02/Club-Management-",
     },
 
     {
@@ -30,7 +33,7 @@ const Projects = () => {
       title: "ElectroMart",
       category: "E-Commerce",
 
-      image: "/projects/electromart.png",
+      image: ElectroMart,
 
       description:
         "A full-stack e-commerce application focused on product management, responsive UI, REST API integration, database operations and scalable backend architecture.",
@@ -44,7 +47,7 @@ const Projects = () => {
       ],
 
       github: "https://github.com/itsritesh02",
-      live: "https://electro-mart-ecommerce-website.vercel.app/",
+      live: "https://github.com/itsritesh02/ElectroMart-Ecommerce-Website",
     },
 
     {
@@ -52,7 +55,7 @@ const Projects = () => {
       title: "Arbaj Technology",
       category: "Company Website",
 
-      image: "/projects/arbaj-technology.png",
+      image: Arbaj,
 
       description:
         "A professional company website developed to present services, company information and business offerings through a modern responsive web interface.",

@@ -104,7 +104,7 @@ const Contact = () => {
 
                 <div>
                   <span>Location</span>
-                  <strong>Punjab, India</strong>
+                  <strong>Zirakpur, Punjab</strong>
                 </div>
               </div>
 

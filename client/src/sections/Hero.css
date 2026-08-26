@@ -50,6 +50,8 @@
   filter: blur(80px);
 
   pointer-events: none;
+
+  animation: glowMove 7s ease-in-out infinite alternate;
 }
 
 .hero::after {
@@ -70,6 +72,36 @@
   filter: blur(80px);
 
   pointer-events: none;
+
+  animation: glowMoveReverse 9s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-25px, 25px) scale(1.08);
+  }
+
+  100% {
+    transform: translate(-45px, 5px) scale(1.15);
+  }
+}
+
+@keyframes glowMoveReverse {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(30px, -20px) scale(1.08);
+  }
+
+  100% {
+    transform: translate(50px, 10px) scale(1.15);
+  }
 }
 
 /* =========================================
@@ -78,12 +110,15 @@
 
 .hero-container {
   position: relative;
+
   z-index: 1;
 
   min-height: calc(100vh - 75px);
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
   gap: 80px;
@@ -95,18 +130,57 @@
 
 .hero-content {
   max-width: 700px;
-
-  animation: heroContent 0.8s ease forwards;
 }
 
-@keyframes heroContent {
+/* =========================================
+   STAGGER ANIMATION
+========================================= */
+
+.hero-intro,
+.hero h1,
+.hero h2,
+.hero-description,
+.hero-buttons,
+.hero-socials {
+  opacity: 0;
+
+  animation: heroItem 0.8s ease forwards;
+}
+
+.hero-intro {
+  animation-delay: 0.15s;
+}
+
+.hero h1 {
+  animation-delay: 0.3s;
+}
+
+.hero h2 {
+  animation-delay: 0.45s;
+}
+
+.hero-description {
+  animation-delay: 0.6s;
+}
+
+.hero-buttons {
+  animation-delay: 0.75s;
+}
+
+.hero-socials {
+  animation-delay: 0.9s;
+}
+
+@keyframes heroItem {
   from {
     opacity: 0;
-    transform: translateY(25px);
+
+    transform: translateY(30px);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0);
   }
 }
@@ -117,6 +191,7 @@
 
 .hero-intro {
   display: flex;
+
   align-items: center;
 
   gap: 10px;
@@ -124,6 +199,7 @@
   color: #00d9ff;
 
   font-size: 15px;
+
   font-weight: 700;
 
   letter-spacing: 1px;
@@ -135,9 +211,22 @@
   content: "";
 
   width: 32px;
+
   height: 1px;
 
   background: #00d9ff;
+
+  transform-origin: left;
+
+  animation: introLine 0.8s ease 0.3s forwards;
+
+  transform: scaleX(0);
+}
+
+@keyframes introLine {
+  to {
+    transform: scaleX(1);
+  }
 }
 
 /* =========================================
@@ -158,6 +247,11 @@
   font-weight: 800;
 }
 
+.hero h1:hover {
+  text-shadow:
+    0 0 20px rgba(0, 217, 255, 0.15);
+}
+
 /* =========================================
    TITLE
 ========================================= */
@@ -176,6 +270,9 @@
 
 .hero h2 span {
   color: #00d9ff;
+
+  text-shadow:
+    0 0 25px rgba(0, 217, 255, 0.18);
 }
 
 /* =========================================
@@ -207,6 +304,8 @@
 }
 
 .hero .btn {
+  position: relative;
+
   min-width: 145px;
 
   padding: 13px 20px;
@@ -214,7 +313,10 @@
   border-radius: 8px;
 
   font-size: 13px;
+
   font-weight: 700;
+
+  overflow: hidden;
 
   transition:
     transform 0.3s ease,
@@ -223,18 +325,58 @@
     color 0.3s ease;
 }
 
+/* Shine effect */
+
+.hero .btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+}
+
+.hero .btn:hover::before {
+  left: 140%;
+}
+
+/* =========================================
+   PRIMARY BUTTON
+========================================= */
+
 .hero .primary-btn {
   color: #05080d;
 
   background: #00d9ff;
+
+  box-shadow:
+    0 8px 25px rgba(0, 217, 255, 0.12);
 }
 
 .hero .primary-btn:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 
   box-shadow:
-    0 12px 35px rgba(0, 217, 255, 0.22);
+    0 15px 40px rgba(0, 217, 255, 0.28);
 }
+
+/* =========================================
+   SECONDARY BUTTON
+========================================= */
 
 .hero .secondary-btn {
   color: #ffffff;
@@ -242,6 +384,8 @@
   background: rgba(255, 255, 255, 0.015);
 
   border: 1px solid #303746;
+
+  backdrop-filter: blur(8px);
 }
 
 .hero .secondary-btn:hover {
@@ -251,7 +395,10 @@
 
   background: rgba(0, 217, 255, 0.04);
 
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
 /* =========================================
@@ -274,6 +421,7 @@
   color: #7e8798;
 
   font-size: 13px;
+
   font-weight: 600;
 
   transition:
@@ -281,10 +429,32 @@
     transform 0.3s ease;
 }
 
+.hero-socials a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -5px;
+
+  width: 0;
+
+  height: 1px;
+
+  background: #00d9ff;
+
+  transition: width 0.3s ease;
+}
+
 .hero-socials a:hover {
   color: #00d9ff;
 
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+}
+
+.hero-socials a:hover::after {
+  width: 100%;
 }
 
 /* =========================================
@@ -296,18 +466,39 @@
 
   flex-shrink: 0;
 
-  animation: heroVisual 1s ease forwards;
+  opacity: 0;
+
+  animation:
+    heroVisual 1s ease 0.25s forwards,
+    visualFloat 5s ease-in-out 1.5s infinite;
 }
 
 @keyframes heroVisual {
   from {
     opacity: 0;
-    transform: translateX(30px) scale(0.95);
+
+    transform:
+      translateX(40px)
+      scale(0.85);
   }
 
   to {
     opacity: 1;
-    transform: translateX(0) scale(1);
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+}
+
+@keyframes visualFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
   }
 }
 
@@ -319,10 +510,13 @@
   position: relative;
 
   width: 330px;
+
   height: 330px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 50%;
@@ -340,17 +534,22 @@
     0 0 90px rgba(0, 217, 255, 0.08),
     inset 0 0 60px rgba(0, 217, 255, 0.05);
 
-  animation: floating 5s ease-in-out infinite;
+  animation:
+    circlePulse 4s ease-in-out infinite;
 }
 
-@keyframes floating {
+@keyframes circlePulse {
   0%,
   100% {
-    transform: translateY(0);
+    box-shadow:
+      0 0 90px rgba(0, 217, 255, 0.08),
+      inset 0 0 60px rgba(0, 217, 255, 0.05);
   }
 
   50% {
-    transform: translateY(-10px);
+    box-shadow:
+      0 0 120px rgba(0, 217, 255, 0.15),
+      inset 0 0 80px rgba(0, 217, 255, 0.08);
   }
 }
 
@@ -363,18 +562,48 @@
 
   position: absolute;
 
-  inset: -12px;
+  inset: -13px;
 
   border-radius: 50%;
 
-  border: 1px dashed rgba(0, 217, 255, 0.25);
+  border: 1px dashed rgba(0, 217, 255, 0.28);
 
-  animation: rotateRing 18s linear infinite;
+  animation:
+    rotateRing 18s linear infinite;
+}
+
+.hero-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 25px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(0, 217, 255, 0.07);
+
+  animation:
+    rotateRingReverse 12s linear infinite;
 }
 
 @keyframes rotateRing {
+  from {
+    transform: rotate(0deg);
+  }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateRingReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
   }
 }
 
@@ -384,24 +613,34 @@
 
 .code-icon {
   position: relative;
+
   z-index: 2;
 
   width: 170px;
+
   height: 170px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 25px;
 
   color: #00d9ff;
 
-  background: rgba(0, 217, 255, 0.045);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(0, 217, 255, 0.08),
+      rgba(0, 217, 255, 0.015)
+    );
 
   border: 1px solid rgba(0, 217, 255, 0.25);
 
   font-size: 55px;
+
   font-weight: 800;
 
   box-shadow:
@@ -410,10 +649,64 @@
 
   text-shadow:
     0 0 20px rgba(0, 217, 255, 0.35);
+
+  opacity: 0;
+
+  animation:
+    codeAppear 1s ease 0.8s forwards,
+    codePulse 3s ease-in-out 1.8s infinite;
+}
+
+@keyframes codeAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.65)
+      rotate(-10deg);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(0deg);
+  }
+}
+
+@keyframes codePulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 45px rgba(0, 217, 255, 0.08),
+      inset 0 0 30px rgba(0, 217, 255, 0.03);
+  }
+
+  50% {
+    box-shadow:
+      0 0 75px rgba(0, 217, 255, 0.22),
+      inset 0 0 45px rgba(0, 217, 255, 0.07);
+  }
 }
 
 /* =========================================
-   RESPONSIVE
+   CODE ICON HOVER
+========================================= */
+
+.code-icon:hover {
+  color: #ffffff;
+
+  border-color: rgba(0, 217, 255, 0.55);
+
+  text-shadow:
+    0 0 30px rgba(0, 217, 255, 0.7);
+
+  transform: scale(1.04);
+}
+
+/* =========================================
+   RESPONSIVE - 1000px
 ========================================= */
 
 @media (max-width: 1000px) {
@@ -423,16 +716,22 @@
 
   .hero-image {
     width: 280px;
+
     height: 280px;
   }
 
   .code-icon {
     width: 145px;
+
     height: 145px;
 
     font-size: 48px;
   }
 }
+
+/* =========================================
+   RESPONSIVE - 900px
+========================================= */
 
 @media (max-width: 900px) {
   .hero {
@@ -457,8 +756,13 @@
     justify-content: center;
   }
 
+  .hero-intro::before {
+    transform-origin: center;
+  }
+
   .hero-description {
     margin-left: auto;
+
     margin-right: auto;
   }
 
@@ -472,16 +776,22 @@
 
   .hero-image {
     width: 260px;
+
     height: 260px;
   }
 
   .code-icon {
     width: 135px;
+
     height: 135px;
 
     font-size: 43px;
   }
 }
+
+/* =========================================
+   RESPONSIVE - 600px
+========================================= */
 
 @media (max-width: 600px) {
   .hero-container {
@@ -508,6 +818,7 @@
 
   .hero-image {
     width: 220px;
+
     height: 220px;
   }
 
@@ -515,15 +826,30 @@
     inset: -8px;
   }
 
+  .hero-image::after {
+    inset: 18px;
+  }
+
   .code-icon {
     width: 115px;
+
     height: 115px;
 
     border-radius: 20px;
 
     font-size: 36px;
   }
+
+  .hero-socials {
+    gap: 18px;
+
+    flex-wrap: wrap;
+  }
 }
+
+/* =========================================
+   RESPONSIVE - 400px
+========================================= */
 
 @media (max-width: 400px) {
   .hero h1 {
@@ -534,19 +860,50 @@
     font-size: 25px;
   }
 
+  .hero-description {
+    font-size: 14px;
+  }
+
   .hero-socials {
     gap: 16px;
   }
 
   .hero-image {
     width: 190px;
+
     height: 190px;
   }
 
   .code-icon {
     width: 100px;
+
     height: 100px;
 
     font-size: 32px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero *,
+  .hero::before,
+  .hero::after {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+  .hero-intro,
+  .hero h1,
+  .hero h2,
+  .hero-description,
+  .hero-buttons,
+  .hero-socials,
+  .hero-image-wrapper,
+  .code-icon {
+    opacity: 1;
   }
 }
