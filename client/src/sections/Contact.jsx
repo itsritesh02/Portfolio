@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "./Contact.css";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -28,11 +30,7 @@ const Contact = () => {
     event.preventDefault();
 
     setLoading(true);
-
-    setStatus({
-      type: "",
-      message: "",
-    });
+    setStatus({ type: "", message: "" });
 
     try {
       await sendContactMessage(formData);
@@ -64,7 +62,6 @@ const Contact = () => {
 
         <div className="section-heading">
           <p>CONTACT</p>
-
           <h2>
             Let's work <span>together</span>
           </h2>
@@ -72,67 +69,95 @@ const Contact = () => {
 
         <div className="contact-grid">
 
+          {/* LEFT */}
           <div className="contact-info">
 
-            <h3>Have a project in mind?</h3>
+            <div className="contact-label">
+              GET IN TOUCH
+            </div>
+
+            <h3>
+              Have a project <span>in mind?</span>
+            </h3>
 
             <p>
-              I'm always open to discussing new projects, opportunities
-              and ideas. Feel free to send me a message.
+              I'm always open to discussing new projects, opportunities,
+              collaborations and interesting ideas. Let's build something
+              meaningful together.
             </p>
 
             <div className="contact-details">
 
               <div className="contact-detail">
-                <span>Email</span>
-                <a href="mailto:itsritesh02@gmail.com">
-                  itsritesh02@gmail.com
-                </a>
+                <div className="contact-detail-icon">@</div>
+
+                <div>
+                  <span>Email</span>
+                  <a href="mailto:itsritesh02@gmail.com">
+                    itsritesh02@gmail.com
+                  </a>
+                </div>
               </div>
 
               <div className="contact-detail">
-                <span>Location</span>
-                <strong>Punjab, India</strong>
+                <div className="contact-detail-icon">⌖</div>
+
+                <div>
+                  <span>Location</span>
+                  <strong>Punjab, India</strong>
+                </div>
               </div>
 
               <div className="contact-detail">
-                <span>Availability</span>
-                <strong>Open to opportunities</strong>
+                <div className="contact-detail-icon">✓</div>
+
+                <div>
+                  <span>Availability</span>
+                  <strong>Open to opportunities</strong>
+                </div>
               </div>
 
             </div>
 
             <div className="contact-socials">
+
               <a
                 href="https://github.com/itsritesh02"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
-                GitHub
+                GitHub ↗
               </a>
 
               <a
                 href="https://www.linkedin.com/in/ritesh-kumar-2707b2413/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
-                LinkedIn
+                LinkedIn ↗
               </a>
 
-              
             </div>
 
           </div>
 
+          {/* RIGHT */}
           <form
             className="contact-form"
             onSubmit={handleSubmit}
           >
 
+            <div className="contact-form-header">
+              <span>START A CONVERSATION</span>
+              <p>Tell me a little about your project.</p>
+            </div>
+
             <div className="form-row">
 
               <div className="form-group">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">
+                  Name
+                </label>
 
                 <input
                   id="name"
@@ -146,7 +171,9 @@ const Contact = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">
+                  Email
+                </label>
 
                 <input
                   id="email"
@@ -162,7 +189,9 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="subject">Subject</label>
+              <label htmlFor="subject">
+                Subject
+              </label>
 
               <input
                 id="subject"
@@ -176,23 +205,23 @@ const Contact = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">
+                Message
+              </label>
 
               <textarea
                 id="message"
                 name="message"
                 rows="6"
-                placeholder="Write your message..."
+                placeholder="Tell me about your project..."
                 value={formData.message}
                 onChange={handleChange}
                 required
-              ></textarea>
+              />
             </div>
 
             {status.message && (
-              <div
-                className={`form-status ${status.type}`}
-              >
+              <div className={`form-status ${status.type}`}>
                 {status.message}
               </div>
             )}
@@ -202,13 +231,12 @@ const Contact = () => {
               className="btn primary-btn submit-btn"
               disabled={loading}
             >
-              {loading ? "Sending..." : "Send Message"}
+              {loading ? "Sending..." : "Send Message ↗"}
             </button>
 
           </form>
 
         </div>
-
       </div>
     </section>
   );
