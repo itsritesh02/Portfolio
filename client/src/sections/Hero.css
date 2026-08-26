@@ -1,0 +1,552 @@
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  padding-top: 75px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 80% 25%,
+      rgba(0, 217, 255, 0.14),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(99, 102, 241, 0.09),
+      transparent 30%
+    ),
+    #080b12;
+}
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  top: -180px;
+  right: -120px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 217, 255, 0.06);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  bottom: -180px;
+  left: -120px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.06);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   HERO CONTAINER
+========================================= */
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+
+  min-height: calc(100vh - 75px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 80px;
+}
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+  max-width: 700px;
+
+  animation: heroContent 0.8s ease forwards;
+}
+
+@keyframes heroContent {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.hero-intro {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #00d9ff;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 15px;
+}
+
+.hero-intro::before {
+  content: "";
+
+  width: 32px;
+  height: 1px;
+
+  background: #00d9ff;
+}
+
+/* =========================================
+   NAME
+========================================= */
+
+.hero h1 {
+  margin-bottom: 15px;
+
+  color: #ffffff;
+
+  font-size: clamp(48px, 7vw, 82px);
+
+  line-height: 0.98;
+
+  letter-spacing: -4px;
+
+  font-weight: 800;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.hero h2 {
+  margin-bottom: 25px;
+
+  color: #dce2ec;
+
+  font-size: clamp(25px, 4vw, 42px);
+
+  line-height: 1.2;
+
+  letter-spacing: -1.5px;
+}
+
+.hero h2 span {
+  color: #00d9ff;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.hero-description {
+  max-width: 620px;
+
+  margin-bottom: 35px;
+
+  color: #929aaa;
+
+  font-size: 16px;
+
+  line-height: 1.85;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.hero-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+.hero .btn {
+  min-width: 145px;
+
+  padding: 13px 20px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.hero .primary-btn {
+  color: #05080d;
+
+  background: #00d9ff;
+}
+
+.hero .primary-btn:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 35px rgba(0, 217, 255, 0.22);
+}
+
+.hero .secondary-btn {
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.015);
+
+  border: 1px solid #303746;
+}
+
+.hero .secondary-btn:hover {
+  color: #00d9ff;
+
+  border-color: rgba(0, 217, 255, 0.5);
+
+  background: rgba(0, 217, 255, 0.04);
+
+  transform: translateY(-4px);
+}
+
+/* =========================================
+   SOCIAL LINKS
+========================================= */
+
+.hero-socials {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  margin-top: 32px;
+}
+
+.hero-socials a {
+  position: relative;
+
+  color: #7e8798;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.hero-socials a:hover {
+  color: #00d9ff;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   HERO VISUAL
+========================================= */
+
+.hero-image-wrapper {
+  position: relative;
+
+  flex-shrink: 0;
+
+  animation: heroVisual 1s ease forwards;
+}
+
+@keyframes heroVisual {
+  from {
+    opacity: 0;
+    transform: translateX(30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* =========================================
+   OUTER CIRCLE
+========================================= */
+
+.hero-image {
+  position: relative;
+
+  width: 330px;
+  height: 330px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(0, 217, 255, 0.3);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.13),
+      rgba(8, 11, 18, 0.7) 65%
+    );
+
+  box-shadow:
+    0 0 90px rgba(0, 217, 255, 0.08),
+    inset 0 0 60px rgba(0, 217, 255, 0.05);
+
+  animation: floating 5s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =========================================
+   ROTATING RING
+========================================= */
+
+.hero-image::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -12px;
+
+  border-radius: 50%;
+
+  border: 1px dashed rgba(0, 217, 255, 0.25);
+
+  animation: rotateRing 18s linear infinite;
+}
+
+@keyframes rotateRing {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   CODE ICON
+========================================= */
+
+.code-icon {
+  position: relative;
+  z-index: 2;
+
+  width: 170px;
+  height: 170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 25px;
+
+  color: #00d9ff;
+
+  background: rgba(0, 217, 255, 0.045);
+
+  border: 1px solid rgba(0, 217, 255, 0.25);
+
+  font-size: 55px;
+  font-weight: 800;
+
+  box-shadow:
+    0 0 45px rgba(0, 217, 255, 0.08),
+    inset 0 0 30px rgba(0, 217, 255, 0.03);
+
+  text-shadow:
+    0 0 20px rgba(0, 217, 255, 0.35);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+  .hero-container {
+    gap: 45px;
+  }
+
+  .hero-image {
+    width: 280px;
+    height: 280px;
+  }
+
+  .code-icon {
+    width: 145px;
+    height: 145px;
+
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-top: 75px;
+  }
+
+  .hero-container {
+    flex-direction: column-reverse;
+
+    justify-content: center;
+
+    padding: 70px 0;
+
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 720px;
+  }
+
+  .hero-intro {
+    justify-content: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-socials {
+    justify-content: center;
+  }
+
+  .hero-image {
+    width: 260px;
+    height: 260px;
+  }
+
+  .code-icon {
+    width: 135px;
+    height: 135px;
+
+    font-size: 43px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-container {
+    padding: 55px 0;
+  }
+
+  .hero h1 {
+    letter-spacing: -2.5px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+
+    line-height: 1.75;
+  }
+
+  .hero-buttons {
+    width: 100%;
+  }
+
+  .hero .btn {
+    width: 100%;
+  }
+
+  .hero-image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-image::before {
+    inset: -8px;
+  }
+
+  .code-icon {
+    width: 115px;
+    height: 115px;
+
+    border-radius: 20px;
+
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .hero h2 {
+    font-size: 25px;
+  }
+
+  .hero-socials {
+    gap: 16px;
+  }
+
+  .hero-image {
+    width: 190px;
+    height: 190px;
+  }
+
+  .code-icon {
+    width: 100px;
+    height: 100px;
+
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,231 @@
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  position: relative;
+
+  background: #06090e;
+
+  border-top: 1px solid #1b222d;
+}
+
+.footer::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: 50%;
+
+  width: 180px;
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background: #00d9ff;
+
+  box-shadow:
+    0 0 25px rgba(0, 217, 255, 0.5);
+}
+
+/* =========================================
+   FOOTER MAIN
+========================================= */
+
+.footer-container {
+  min-height: 230px;
+
+  display: grid;
+
+  grid-template-columns: 1.5fr 1fr 1fr;
+
+  align-items: center;
+
+  gap: 60px;
+
+  padding: 55px 0;
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.footer-logo {
+  display: inline-block;
+
+  color: #ffffff;
+
+  font-size: 27px;
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+  transition: 0.3s;
+}
+
+.footer-logo span {
+  color: #00d9ff;
+}
+
+.footer-logo:hover {
+  color: #00d9ff;
+}
+
+.footer-brand p {
+  max-width: 330px;
+
+  margin-top: 15px;
+
+  color: #687384;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   FOOTER HEADINGS
+========================================= */
+
+.footer-heading {
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: #dce2ec;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+/* =========================================
+   FOOTER LINKS
+========================================= */
+
+.footer-links {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 11px;
+}
+
+.footer-links a,
+.footer-socials a {
+  position: relative;
+
+  color: #737e90;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.footer-links a:hover,
+.footer-socials a:hover {
+  color: #00d9ff;
+
+  transform: translateX(3px);
+}
+
+/* =========================================
+   SOCIALS
+========================================= */
+
+.footer-socials {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 11px;
+}
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+.footer-bottom {
+  border-top: 1px solid #171e28;
+}
+
+.footer-bottom-container {
+  min-height: 65px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.footer-bottom p {
+  color: #596373;
+
+  font-size: 11px;
+}
+
+.back-top {
+  color: #687384;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition: 0.3s;
+}
+
+.back-top:hover {
+  color: #00d9ff;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 750px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 50px 0;
+
+    text-align: center;
+  }
+
+  .footer-brand p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-links,
+  .footer-socials {
+    align-items: center;
+  }
+
+  .footer-links a:hover,
+  .footer-socials a:hover {
+    transform: none;
+  }
+
+  .footer-bottom-container {
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 18px 0;
+  }
+}

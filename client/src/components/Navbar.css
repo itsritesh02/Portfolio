@@ -1,0 +1,291 @@
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 75px;
+
+  z-index: 1000;
+
+  background: rgba(8, 11, 18, 0.88);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* =========================================
+   SCROLLED NAVBAR
+========================================= */
+
+.navbar-scrolled {
+  background: rgba(6, 9, 15, 0.96);
+
+  border-bottom-color: rgba(0, 217, 255, 0.12);
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================
+   NAVBAR CONTAINER
+========================================= */
+
+.navbar-container {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+  position: relative;
+  z-index: 1001;
+
+  color: #ffffff;
+
+  font-size: 28px;
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.logo span {
+  color: #00d9ff;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   NAV LINKS
+========================================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+
+  list-style: none;
+}
+
+.nav-links a {
+  position: relative;
+
+  display: inline-block;
+
+  padding: 8px 0;
+
+  color: #aeb5c4;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00d9ff;
+}
+
+/* =========================================
+   ACTIVE LINK
+========================================= */
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: #00d9ff;
+
+  transform: translateX(-50%);
+
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: #00d9ff;
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.menu-btn {
+  position: relative;
+
+  z-index: 1001;
+
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.menu-btn span {
+  display: block;
+
+  width: 25px;
+  height: 2px;
+
+  margin: 5px auto;
+
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* =========================================
+   MENU ACTIVE / X
+========================================= */
+
+.menu-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+
+  transform: scaleX(0);
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================
+   TABLET / MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+
+    top: 75px;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0;
+
+    padding: 20px 25px 25px;
+
+    background: rgba(8, 11, 18, 0.98);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-15px);
+
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    width: 100%;
+
+    padding: 13px 0;
+  }
+
+  .nav-links a::after {
+    left: 0;
+
+    transform: none;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a.active::after {
+    width: 35px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+  .navbar {
+    height: 68px;
+  }
+
+  .nav-links {
+    top: 68px;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+}

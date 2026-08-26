@@ -1,0 +1,434 @@
+
+
+.contact {
+  position: relative;
+  background: #080b12;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  right: -250px;
+  top: 100px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 217, 255, 0.04);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+.contact-grid {
+  display: grid;
+
+  grid-template-columns: 0.85fr 1.15fr;
+
+  gap: 70px;
+
+  align-items: start;
+}
+
+/* =========================================
+   CONTACT INFO
+========================================= */
+
+.contact-info {
+  padding-top: 10px;
+}
+
+.contact-label {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  color: #00d9ff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.contact-info h3 {
+  max-width: 450px;
+
+  color: #f5f7fa;
+
+  font-size: clamp(30px, 4vw, 43px);
+
+  line-height: 1.15;
+
+  letter-spacing: -1.5px;
+
+  margin-bottom: 20px;
+}
+
+.contact-info h3 span {
+  color: #00d9ff;
+}
+
+.contact-info > p {
+  max-width: 500px;
+
+  color: #858fa0;
+
+  font-size: 15px;
+
+  line-height: 1.85;
+
+  margin-bottom: 35px;
+}
+
+/* =========================================
+   CONTACT DETAILS
+========================================= */
+
+.contact-details {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.contact-detail {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 16px;
+
+  border: 1px solid #202832;
+
+  border-radius: 11px;
+
+  background: #0c1119;
+
+  transition: 0.3s;
+}
+
+.contact-detail:hover {
+  transform: translateX(5px);
+
+  border-color: rgba(0, 217, 255, 0.3);
+
+  background: #0d141e;
+}
+
+.contact-detail-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  color: #00d9ff;
+
+  background: rgba(0, 217, 255, 0.06);
+
+  border: 1px solid rgba(0, 217, 255, 0.15);
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.contact-detail span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #667183;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
+}
+
+.contact-detail strong,
+.contact-detail a {
+  color: #dce2eb;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.contact-detail a {
+  transition: 0.3s;
+}
+
+.contact-detail a:hover {
+  color: #00d9ff;
+}
+
+/* =========================================
+   SOCIALS
+========================================= */
+
+.contact-socials {
+  display: flex;
+
+  gap: 25px;
+
+  margin-top: 30px;
+}
+
+.contact-socials a {
+  color: #7c8798;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition: 0.3s;
+}
+
+.contact-socials a:hover {
+  color: #00d9ff;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   CONTACT FORM
+========================================= */
+
+.contact-form {
+  position: relative;
+
+  padding: 34px;
+
+  border: 1px solid #202832;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 24, 34, 0.95),
+      rgba(10, 15, 23, 0.98)
+    );
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+.contact-form::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 35px;
+  right: 35px;
+
+  height: 1px;
+
+  background: #00d9ff;
+
+  box-shadow:
+    0 0 20px rgba(0, 217, 255, 0.4);
+}
+
+.contact-form-header {
+  margin-bottom: 28px;
+}
+
+.contact-form-header span {
+  color: #00d9ff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+.contact-form-header p {
+  margin-top: 7px;
+
+  color: #687384;
+
+  font-size: 12px;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-bottom: 19px;
+}
+
+.form-group label {
+  color: #aab3c2;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+
+  outline: none;
+
+  border: 1px solid #252e3a;
+
+  border-radius: 9px;
+
+  background: #0b1119;
+
+  color: #ffffff;
+
+  padding: 13px 14px;
+
+  font-size: 13px;
+
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
+}
+
+.form-group input {
+  height: 48px;
+}
+
+.form-group textarea {
+  min-height: 145px;
+
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #505b6b;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #00d9ff;
+
+  background: #0d141e;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 217, 255, 0.06);
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.form-status {
+  padding: 12px 14px;
+
+  margin-bottom: 18px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.form-status.success {
+  color: #7ee2b8;
+
+  background: rgba(72, 201, 151, 0.08);
+
+  border: 1px solid rgba(72, 201, 151, 0.2);
+}
+
+.form-status.error {
+  color: #ff8f8f;
+
+  background: rgba(255, 80, 80, 0.08);
+
+  border: 1px solid rgba(255, 80, 80, 0.2);
+}
+
+/* =========================================
+   SUBMIT
+========================================= */
+
+.submit-btn {
+  width: 100%;
+
+  min-height: 50px;
+
+  border: none;
+
+  cursor: pointer;
+
+  border-radius: 9px;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+}
+
+@media (max-width: 650px) {
+  .form-row {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .contact-form {
+    padding: 25px 20px;
+  }
+
+  .contact-form::before {
+    left: 20px;
+    right: 20px;
+  }
+
+  .contact-info h3 {
+    font-size: 32px;
+  }
+}
