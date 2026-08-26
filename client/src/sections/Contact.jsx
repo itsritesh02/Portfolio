@@ -85,8 +85,8 @@ const Contact = () => {
 
               <div className="contact-detail">
                 <span>Email</span>
-                <a href="mailto:your-email@gmail.com">
-                  your-email@gmail.com
+                <a href="mailto:itsritesh02@gmail.com">
+                  itsritesh02@gmail.com
                 </a>
               </div>
 
@@ -104,7 +104,7 @@ const Contact = () => {
 
             <div className="contact-socials">
               <a
-                href="https://github.com/"
+                href="https://github.com/itsritesh02"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -112,12 +112,14 @@ const Contact = () => {
               </a>
 
               <a
-                href="https://linkedin.com/"
+                href="https://www.linkedin.com/in/ritesh-kumar-2707b2413/"
                 target="_blank"
                 rel="noreferrer"
               >
                 LinkedIn
               </a>
+
+              
             </div>
 
           </div>
