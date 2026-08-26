@@ -1,3 +1,5 @@
+import "./Skills.css";
+
 const Skills = () => {
   const skills = [
     {
