@@ -3,8 +3,12 @@ const Hero = () => {
     <section id="home" className="hero">
       <div className="container hero-container">
 
+        {/* LEFT CONTENT */}
         <div className="hero-content">
-          <p className="hero-intro">Hello, I'm</p>
+
+          <p className="hero-intro">
+            Hello, I'm
+          </p>
 
           <h1>
             Ritesh Kumar
@@ -15,18 +19,21 @@ const Hero = () => {
           </h2>
 
           <p className="hero-description">
-            I build modern, responsive and scalable web applications
-            using MongoDB, Express.js, React.js and Node.js.
+            I’m a MERN Stack Developer with 2 years of experience
+            building responsive, scalable, and user-friendly web
+            applications using React.js, Node.js, Express.js, and MongoDB.
           </p>
 
+          {/* BUTTONS */}
           <div className="hero-buttons">
-            <a href="#projects" className="btn primary-btn">
+
+            <a
+              href="#projects"
+              className="btn primary-btn"
+            >
               View Projects
             </a>
 
-            <a href="#contact" className="btn secondary-btn">
-              Contact Me
-            </a>
             <a
               href="/resume/Ritesh-Kumar-Resume.pdf"
               target="_blank"
@@ -35,33 +42,56 @@ const Hero = () => {
             >
               Download Resume
             </a>
+
+            <a
+              href="#contact"
+              className="btn secondary-btn"
+            >
+              Contact Me
+            </a>
+
           </div>
 
+          {/* SOCIAL LINKS */}
           <div className="hero-socials">
+
             <a
               href="https://github.com/itsritesh02"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
-              GitHub
+              GitHub ↗
             </a>
 
             <a
               href="https://www.linkedin.com/in/ritesh-kumar-2707b2413/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
-              LinkedIn
+              LinkedIn ↗
             </a>
 
+            <a
+              href="mailto:itsritesh02@gmail.com"
+            >
+              Email ↗
+            </a>
 
           </div>
+
         </div>
 
+        {/* RIGHT VISUAL */}
         <div className="hero-image-wrapper">
+
           <div className="hero-image">
-            <div className="code-icon">&lt;/&gt;</div>
+
+            <div className="code-icon">
+              &lt;/&gt;
+            </div>
+
           </div>
+
         </div>
 
       </div>
