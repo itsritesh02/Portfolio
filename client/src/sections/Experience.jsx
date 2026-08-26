@@ -18,7 +18,7 @@ const Experience = () => {
             <div className="experience-dot"></div>
 
             <div className="experience-date">
-              2 Years Experience
+              1+ Years Experience
             </div>
 
             <div className="experience-content">
