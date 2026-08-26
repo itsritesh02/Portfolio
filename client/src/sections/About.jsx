@@ -42,12 +42,12 @@ const About = () => {
 
               <div>
                 <span>Experience</span>
-                <strong>1+ Year</strong>
+                <strong>1+ Years</strong>
               </div>
 
               <div>
-                <span>Location</span>
-                <strong>Punjab, India</strong>
+                <span>Company</span>
+                <strong>Arbaj Technology</strong>
               </div>
             </div>
           </div>
