@@ -30,7 +30,7 @@ const Projects = () => {
 
     {
       number: "02",
-      title: "ElectroMart",
+      title: "ElectroMart Eccomerce Website",
       category: "E-Commerce",
 
       image: ElectroMart,
@@ -52,7 +52,7 @@ const Projects = () => {
 
     {
       number: "03",
-      title: "Arbaj Technology",
+      title: "Arbaj Technology ",
       category: "Company Website",
 
       image: Arbaj,
