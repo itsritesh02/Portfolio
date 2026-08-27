@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 import "./Contact.css";
 
@@ -30,26 +31,38 @@ const Contact = () => {
     event.preventDefault();
 
     setLoading(true);
-    setStatus({ type: "", message: "" });
+    setStatus({
+      type: "",
+      message: "",
+    });
 
     try {
-      await sendContactMessage(formData);
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/contact`,
+        formData
+      );
 
-      setStatus({
-        type: "success",
-        message: "Message sent successfully!",
-      });
+      if (response.data.success) {
+        setStatus({
+          type: "success",
+          message: "Message sent successfully!",
+        });
 
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      }
     } catch (error) {
+      console.error("Contact form error:", error);
+
       setStatus({
         type: "error",
-        message: error.message || "Failed to send message.",
+        message:
+          error.response?.data?.message ||
+          "Failed to send message. Please try again.",
       });
     } finally {
       setLoading(false);
@@ -62,6 +75,7 @@ const Contact = () => {
 
         <div className="section-heading">
           <p>CONTACT</p>
+
           <h2>
             Let's work <span>together</span>
           </h2>
@@ -93,6 +107,7 @@ const Contact = () => {
 
                 <div>
                   <span>Email</span>
+
                   <a href="mailto:itsritesh02@gmail.com">
                     itsritesh02@gmail.com
                   </a>
@@ -100,20 +115,30 @@ const Contact = () => {
               </div>
 
               <div className="contact-detail">
-                <div className="contact-detail-icon">⌖</div>
+                <div className="contact-detail-icon">
+                  ⌖
+                </div>
 
                 <div>
                   <span>Location</span>
-                  <strong>Zirakpur, Punjab</strong>
+
+                  <strong>
+                    Zirakpur, Punjab
+                  </strong>
                 </div>
               </div>
 
               <div className="contact-detail">
-                <div className="contact-detail-icon">✓</div>
+                <div className="contact-detail-icon">
+                  ✓
+                </div>
 
                 <div>
                   <span>Availability</span>
-                  <strong>Open to opportunities</strong>
+
+                  <strong>
+                    Open to opportunities
+                  </strong>
                 </div>
               </div>
 
@@ -148,13 +173,19 @@ const Contact = () => {
           >
 
             <div className="contact-form-header">
-              <span>START A CONVERSATION</span>
-              <p>Tell me a little about your project.</p>
+              <span>
+                START A CONVERSATION
+              </span>
+
+              <p>
+                Tell me a little about your project.
+              </p>
             </div>
 
             <div className="form-row">
 
               <div className="form-group">
+
                 <label htmlFor="name">
                   Name
                 </label>
@@ -168,9 +199,11 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                 />
+
               </div>
 
               <div className="form-group">
+
                 <label htmlFor="email">
                   Email
                 </label>
@@ -184,11 +217,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                 />
+
               </div>
 
             </div>
 
             <div className="form-group">
+
               <label htmlFor="subject">
                 Subject
               </label>
@@ -202,9 +237,11 @@ const Contact = () => {
                 onChange={handleChange}
                 required
               />
+
             </div>
 
             <div className="form-group">
+
               <label htmlFor="message">
                 Message
               </label>
@@ -218,6 +255,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
               />
+
             </div>
 
             {status.message && (
@@ -231,7 +269,9 @@ const Contact = () => {
               className="btn primary-btn submit-btn"
               disabled={loading}
             >
-              {loading ? "Sending..." : "Send Message ↗"}
+              {loading
+                ? "Sending..."
+                : "Send Message ↗"}
             </button>
 
           </form>
