@@ -1,9 +1,11 @@
 import Contact from "../models/Contact.js";
+import { sendContactEmail } from "../services/emailService.js";
 
 export const createContact = async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
 
+    // Validation
     if (!name || !email || !subject || !message) {
       return res.status(400).json({
         success: false,
@@ -11,6 +13,7 @@ export const createContact = async (req, res) => {
       });
     }
 
+    // Save message to MongoDB
     const contact = await Contact.create({
       name,
       email,
@@ -18,15 +21,23 @@ export const createContact = async (req, res) => {
       message,
     });
 
-    res.status(201).json({
+    // Send email notification
+    await sendContactEmail({
+      name,
+      email,
+      subject,
+      message,
+    });
+
+    return res.status(201).json({
       success: true,
       message: "Message sent successfully",
       data: contact,
     });
   } catch (error) {
-    console.error("Contact Error:", error.message);
+    console.error("Contact Error:", error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: "Something went wrong",
     });
