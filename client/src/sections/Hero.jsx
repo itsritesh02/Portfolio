@@ -1,52 +1,112 @@
+import { useEffect, useState } from "react";
+import profile from "../assets/images/ritesh.jpg";
 import "./Hero.css";
 
 const Hero = () => {
+  const roles = [
+    "MERN Stack Developer",
+    "React.js Developer",
+    "Full Stack Developer",
+  ];
+
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+
+    const typingSpeed = isDeleting ? 60 : 100;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setText(currentRole.substring(0, text.length + 1));
+
+        if (text === currentRole) {
+          setTimeout(() => {
+            setIsDeleting(true);
+          }, 1500);
+        }
+      } else {
+        setText(currentRole.substring(0, text.length - 1));
+
+        if (text === "") {
+          setIsDeleting(false);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, roleIndex]);
+
   return (
-    <section id="home" className="hero">
-      <div className="container hero-container">
+    <section id="home" className="rk-hero">
+      <div className="container rk-hero-container">
 
-        <div className="hero-content">
+        {/* =========================
+            HERO CONTENT
+        ========================= */}
+        <div className="rk-hero-content">
 
-          <p className="hero-intro">
+          <p className="rk-hero-intro">
             Hello, I'm
           </p>
 
-          <h1>
+          <h1 className="rk-hero-name">
             Ritesh Kumar
           </h1>
 
-          <h2>
-            MERN Stack <span>Developer</span>
+          {/* =========================
+              TYPEWRITER TITLE
+          ========================= */}
+          <h2 className="rk-hero-title">
+            <span className="rk-typewriter">
+              {text}
+            </span>
+
+            <span className="rk-cursor">|</span>
           </h2>
 
-          <p className="hero-description">
+          <p className="rk-hero-description">
             I’m a MERN Stack Developer with 2 years of experience
             building responsive, scalable, and user-friendly web
             applications using React.js, Node.js, Express.js, and MongoDB.
           </p>
 
-          <div className="hero-buttons">
+          {/* =========================
+              BUTTONS
+          ========================= */}
+          <div className="rk-hero-buttons">
 
-            <a href="#projects" className="btn primary-btn">
+            <a
+              href="#projects"
+              className="rk-btn rk-primary-btn"
+            >
               View Projects
             </a>
 
             <a
-              href="/resume/Ritesh-Kumar-Resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="btn secondary-btn"
+              href="/resume/RMK.pdf"
+              download="Ritesh-Kumar-Resume.pdf"
+              className="rk-btn rk-secondary-btn"
             >
               Download Resume
             </a>
 
-            <a href="#contact" className="btn secondary-btn">
+            <a
+              href="#contact"
+              className="rk-btn rk-secondary-btn"
+            >
               Contact Me
             </a>
 
           </div>
 
-          <div className="hero-socials">
+          {/* =========================
+              SOCIAL LINKS
+          ========================= */}
+          <div className="rk-hero-socials">
 
             <a
               href="https://github.com/itsritesh02"
@@ -72,12 +132,21 @@ const Hero = () => {
 
         </div>
 
-        <div className="hero-image-wrapper">
-          <div className="hero-image">
-            <div className="code-icon">
-              &lt;/&gt;
-            </div>
+        {/* =========================
+            PROFILE IMAGE
+        ========================= */}
+        <div className="rk-profile-wrapper">
+
+          <div className="rk-profile-frame">
+
+            <img
+              src={profile}
+              alt="Ritesh Kumar - MERN Stack Developer"
+              className="rk-profile-image"
+            />
+
           </div>
+
         </div>
 
       </div>
