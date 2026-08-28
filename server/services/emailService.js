@@ -43,7 +43,7 @@ export const sendContactEmail = async ({ name, email, subject, message }) => {
             >
 
               <h2 style="color: #111;">
-                New Contact Message 🚀
+                New Contact Message 
               </h2>
 
               <p>
