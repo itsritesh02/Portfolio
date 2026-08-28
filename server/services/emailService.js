@@ -1,86 +1,98 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendContactEmail = async ({ name, email, subject, message }) => {
-  await transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    replyTo: email,
-    subject: `Portfolio Contact: ${subject}`,
+  try {
+    const { data, error } = await resend.emails.send({
+      from: "Portfolio <onboarding@resend.dev>",
 
-    html: `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="UTF-8" />
-          <title>New Portfolio Contact</title>
-        </head>
+      to: [process.env.CONTACT_EMAIL],
 
-        <body
-          style="
-            margin: 0;
-            padding: 30px;
-            background-color: #f5f5f5;
-            font-family: Arial, sans-serif;
-          "
-        >
-          <div
+      replyTo: email,
+
+      subject: `Portfolio Contact: ${subject}`,
+
+      html: `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="UTF-8" />
+            <title>New Portfolio Contact</title>
+          </head>
+
+          <body
             style="
-              max-width: 600px;
-              margin: auto;
-              background: #ffffff;
+              margin: 0;
               padding: 30px;
-              border-radius: 10px;
+              background-color: #f5f5f5;
+              font-family: Arial, sans-serif;
             "
           >
-            <h2>New Contact Message</h2>
-
-            <p>
-              <strong>Name:</strong> ${name}
-            </p>
-
-            <p>
-              <strong>Email:</strong> ${email}
-            </p>
-
-            <p>
-              <strong>Subject:</strong> ${subject}
-            </p>
-
             <div
               style="
-                margin-top: 20px;
-                padding: 15px;
-                background: #f5f5f5;
-                border-radius: 8px;
+                max-width: 600px;
+                margin: auto;
+                background: #ffffff;
+                padding: 30px;
+                border-radius: 10px;
               "
             >
-              <strong>Message:</strong>
 
-              <p style="white-space: pre-line;">
-                ${message}
+              <h2 style="color: #111;">
+                New Contact Message 🚀
+              </h2>
+
+              <p>
+                <strong>Name:</strong> ${name}
               </p>
+
+              <p>
+                <strong>Email:</strong> ${email}
+              </p>
+
+              <p>
+                <strong>Subject:</strong> ${subject}
+              </p>
+
+              <div
+                style="
+                  margin-top: 20px;
+                  padding: 15px;
+                  background: #f5f5f5;
+                  border-radius: 8px;
+                "
+              >
+                <strong>Message:</strong>
+
+                <p style="white-space: pre-line;">
+                  ${message}
+                </p>
+              </div>
+
+              <hr style="margin: 25px 0;" />
+
+              <p style="font-size: 13px; color: #777;">
+                This message was sent from your portfolio contact form.
+              </p>
+
             </div>
+          </body>
+        </html>
+      `,
+    });
 
-            <hr style="margin: 25px 0;" />
+    if (error) {
+      console.error("Resend Error:", error);
+      throw new Error(error.message);
+    }
 
-            <p style="font-size: 13px; color: #777;">
-              This message was sent from your portfolio contact form.
-            </p>
-          </div>
-        </body>
-      </html>
-    `,
-  });
+    return data;
+  } catch (error) {
+    console.error("Email Service Error:", error);
+    throw error;
+  }
 };
