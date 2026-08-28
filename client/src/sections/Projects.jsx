@@ -150,7 +150,7 @@ const Projects = () => {
       ],
 
       // github: "https://github.com/itsritesh02",
-      live: "https://growthoverseas.in/",
+      live: "https://growthoverseasedutech.in/",
     },
 
     {
