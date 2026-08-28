@@ -32,7 +32,30 @@ const Skills = () => {
       ],
     },
     {
-      title: "Tools & Others",
+      title: "Java & DSA",
+      items: [
+        "Java",
+        "Data Structures",
+        "Algorithms",
+        "Arrays",
+        "Strings",
+        "Searching",
+        "Sorting",
+      ],
+    },
+    {
+      title: "WordPress",
+      items: [
+        "WordPress",
+        "Elementor",
+        "WooCommerce",
+        "Theme Customization",
+        "Plugin Management",
+        "cPanel",
+      ],
+    },
+    {
+      title: "Tools & Deployment",
       items: [
         "Git",
         "GitHub",
@@ -50,23 +73,26 @@ const Skills = () => {
 
         <div className="section-heading">
           <p>MY SKILLS</p>
-          <h2>Technologies I <span>work with</span></h2>
+
+          <h2>
+            Technologies I <span>work with</span>
+          </h2>
         </div>
 
         <div className="skills-grid">
 
           {skills.map((skill, index) => (
-            <div className="skill-card" key={index}>
+            <div className="skill-card" key={skill.title}>
 
               <div className="skill-number">
-                0{index + 1}
+                {String(index + 1).padStart(2, "0")}
               </div>
 
               <h3>{skill.title}</h3>
 
               <div className="skill-items">
-                {skill.items.map((item, itemIndex) => (
-                  <span key={itemIndex}>
+                {skill.items.map((item) => (
+                  <span key={item}>
                     {item}
                   </span>
                 ))}

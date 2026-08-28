@@ -14,8 +14,7 @@ const Footer = () => {
           </a>
 
           <p>
-            MERN Stack Developer focused on building modern,
-            scalable and user-friendly web applications.
+            I’m a MERN Stack Developer passionate about building modern, responsive and user-friendly web applications. I work with React, Node.js, Express, MongoDB and WordPress to create reliable digital experiences. Always learning, improving and turning ideas into meaningful web solutions.
           </p>
         </div>
 

@@ -43,8 +43,8 @@ const Experience = () => {
 
               <p>
                 Working as a MERN Stack Developer, building responsive
-                and scalable web applications using modern frontend and
-                backend technologies.
+                and scalable web applications using modern frontend,
+                backend and WordPress technologies.
               </p>
 
               <ul>
@@ -68,6 +68,16 @@ const Experience = () => {
                 </li>
 
                 <li>
+                  Developed and customized WordPress websites based on
+                  business and client requirements.
+                </li>
+
+                <li>
+                  Worked with WordPress, Elementor and WooCommerce for
+                  website development and customization.
+                </li>
+
+                <li>
                   Integrated third-party services such as Cloudinary
                   and email services.
                 </li>
@@ -86,6 +96,9 @@ const Experience = () => {
                 <span>MongoDB</span>
                 <span>JWT</span>
                 <span>REST API</span>
+                <span>WordPress</span>
+                <span>Elementor</span>
+                <span>WooCommerce</span>
                 <span>Git</span>
               </div>
 
