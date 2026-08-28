@@ -22,8 +22,9 @@ const Education = () => {
             </span>
 
             <h3>B.Tech</h3>
+            <h2>Computer Science Engineering</h2>
 
-            <h4>Sri Sukhmani Institute of Engineering & Technology</h4>
+            <h4>Swami Vivekanand Institute of Engineering & Technology (SVIET), Banur, Rajpura</h4>
 
             <p>
               Bachelor's degree with a focus on building strong technical
@@ -31,7 +32,10 @@ const Education = () => {
             </p>
 
             <div className="education-tags">
-              <span>Computer Science</span>
+
+              <span>Mern Stack Developer</span>
+              <span>Full Stack Developer</span>
+              <span>Computer Science Engineering</span>
               <span>Software Development</span>
               <span>Web Development</span>
             </div>

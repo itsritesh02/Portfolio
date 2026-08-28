@@ -5,48 +5,29 @@ import "./Hero.css";
 const Hero = () => {
   const roles = [
     "MERN Stack Developer",
-    "React.js Developer",
     "Full Stack Developer",
+    "WordPress Developer",
+    "React.js Developer",
   ];
 
   const [roleIndex, setRoleIndex] = useState(0);
-  const [text, setText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentRole = roles[roleIndex];
+    const timer = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 3000);
 
-    const typingSpeed = isDeleting ? 60 : 100;
-
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        setText(currentRole.substring(0, text.length + 1));
-
-        if (text === currentRole) {
-          setTimeout(() => {
-            setIsDeleting(true);
-          }, 1500);
-        }
-      } else {
-        setText(currentRole.substring(0, text.length - 1));
-
-        if (text === "") {
-          setIsDeleting(false);
-          setRoleIndex((prev) => (prev + 1) % roles.length);
-        }
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timer);
-  }, [text, isDeleting, roleIndex]);
+    return () => clearInterval(timer);
+  }, [roles.length]);
 
   return (
     <section id="home" className="rk-hero">
       <div className="container rk-hero-container">
 
-        {/* =========================
+        {/* =================================
             HERO CONTENT
-        ========================= */}
+        ================================= */}
+
         <div className="rk-hero-content">
 
           <p className="rk-hero-intro">
@@ -57,26 +38,36 @@ const Hero = () => {
             Ritesh Kumar
           </h1>
 
-          {/* =========================
-              TYPEWRITER TITLE
-          ========================= */}
-          <h2 className="rk-hero-title">
-            <span className="rk-typewriter">
-              {text}
-            </span>
+          {/* =================================
+              ROLE
+          ================================= */}
 
-            <span className="rk-cursor">|</span>
-          </h2>
+          <div className="rk-role-box">
+            <h2
+              key={roleIndex}
+              className="rk-hero-title"
+            >
+              {roles[roleIndex]}
+            </h2>
+          </div>
+
+          {/* =================================
+              DESCRIPTION
+          ================================= */}
 
           <p className="rk-hero-description">
-            I’m a MERN Stack Developer with 2 years of experience
-            building responsive, scalable, and user-friendly web
+            I’m a MERN Stack Developer with 1-2 years of experience
+            building responsive, scalable, and user-focused web
             applications using React.js, Node.js, Express.js, and MongoDB.
+            I also specialize in developing and customizing modern
+            WordPress websites, delivering clean, high-performance digital
+            solutions tailored to business needs.
           </p>
 
-          {/* =========================
+          {/* =================================
               BUTTONS
-          ========================= */}
+          ================================= */}
+
           <div className="rk-hero-buttons">
 
             <a
@@ -103,9 +94,10 @@ const Hero = () => {
 
           </div>
 
-          {/* =========================
+          {/* =================================
               SOCIAL LINKS
-          ========================= */}
+          ================================= */}
+
           <div className="rk-hero-socials">
 
             <a
@@ -132,9 +124,10 @@ const Hero = () => {
 
         </div>
 
-        {/* =========================
+        {/* =================================
             PROFILE IMAGE
-        ========================= */}
+        ================================= */}
+
         <div className="rk-profile-wrapper">
 
           <div className="rk-profile-frame">

@@ -1,3 +1,4 @@
+
 import "./ProjectCard.css";
 
 const ProjectCard = ({ project }) => {
@@ -10,7 +11,7 @@ const ProjectCard = ({ project }) => {
         {project.image ? (
           <img
             src={project.image}
-            alt={`${project.title} project`}
+            alt={`${ project.title } project`}
             loading="lazy"
           />
         ) : (
@@ -49,20 +50,24 @@ const ProjectCard = ({ project }) => {
 
           <div className="project-links">
 
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${project.title} GitHub`}
-            >
-              GitHub ↗
-            </a>
+            {/* GITHUB - ONLY FOR PROJECTS WITH GITHUB */}
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${ project.title } GitHub`}
+              >
+                GitHub ↗
+              </a>
+            )}
 
+            {/* LIVE */}
             <a
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`View ${project.title} live`}
+              aria-label={`View ${ project.title } live`}
             >
               Live ↗
             </a>
