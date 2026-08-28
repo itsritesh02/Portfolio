@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Navbar.css";
+import logo from "../assets/images/logopro.png"
 
 const navItems = [
   { name: "Home", id: "home" },
@@ -60,7 +61,7 @@ const Navbar = () => {
           className="logo"
           onClick={() => handleLinkClick("home")}
         >
-          Ritesh<span>.</span>
+         <img src={logo} alt="Ritesh Kumar" />
         </a>
 
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>

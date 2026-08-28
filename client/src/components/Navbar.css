@@ -1,3 +1,6 @@
+/* =========================================
+   NAVBAR
+========================================= */
 
 .navbar {
   position: fixed;
@@ -21,7 +24,6 @@
     border-color 0.35s ease,
     box-shadow 0.35s ease;
 
-  /* LOAD ANIMATION */
   animation: navbarSlideDown 0.8s ease-out both;
 }
 
@@ -76,22 +78,48 @@
 
 .logo {
   position: relative;
+
   z-index: 1001;
 
-  color: #ffffff;
+  display: flex;
+  align-items: center;
 
-  font-size: 28px;
-  font-weight: 800;
+  width: auto;
+  height: 100%;
 
-  letter-spacing: -1px;
+  text-decoration: none;
+
+  transition: transform 0.3s ease;
+
+  animation: logoReveal 0.8s ease-out 0.2s both;
+}
+
+
+/* =========================================
+   LOGO IMAGE
+========================================= */
+
+.logo img {
+  display: block;
+
+  width: auto;
+  height: 78px;
+
+  max-width: 180px;
+
+  object-fit: contain;
+
+  object-position: center;
 
   transition:
     transform 0.3s ease,
-    color 0.3s ease;
-
-  /* LOGO ANIMATION */
-  animation: logoReveal 0.8s ease-out 0.2s both;
+    opacity 0.3s ease;
 }
+
+
+/* =========================================
+   LOGO ANIMATION
+========================================= */
 
 @keyframes logoReveal {
   from {
@@ -105,12 +133,13 @@
   }
 }
 
-.logo span {
-  color: #00d9ff;
-}
 
 .logo:hover {
   transform: translateY(-2px);
+}
+
+.logo:hover img {
+  transform: scale(1.03);
 }
 
 
@@ -167,6 +196,7 @@
   animation-delay: 0.67s;
 }
 
+
 @keyframes navLinkReveal {
   from {
     opacity: 0;
@@ -181,7 +211,7 @@
 
 
 /* =========================================
-   NAV LINKS STYLE
+   NAV LINK STYLE
 ========================================= */
 
 .nav-links a {
@@ -203,6 +233,7 @@
     transform 0.3s ease;
 }
 
+
 .nav-links a:hover {
   color: #00d9ff;
 
@@ -211,7 +242,7 @@
 
 
 /* =========================================
-   ACTIVE LINK
+   ACTIVE LINK UNDERLINE
 ========================================= */
 
 .nav-links a::after {
@@ -234,10 +265,12 @@
   transition: width 0.3s ease;
 }
 
+
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
 }
+
 
 .nav-links a.active {
   color: #00d9ff;
@@ -267,6 +300,7 @@
   cursor: pointer;
 }
 
+
 .menu-btn span {
   display: block;
 
@@ -286,7 +320,7 @@
 
 
 /* =========================================
-   MENU ACTIVE / X
+   MOBILE MENU ACTIVE / X
 ========================================= */
 
 .menu-btn.active span:nth-child(1) {
@@ -322,6 +356,7 @@
 
     animation: menuReveal 0.7s ease-out 0.25s both;
   }
+
 
   @keyframes menuReveal {
     from {
@@ -406,6 +441,7 @@
       1px solid rgba(255, 255, 255, 0.05);
   }
 
+
   .nav-links li:last-child {
     border-bottom: none;
   }
@@ -418,6 +454,7 @@
   .nav-links.open li {
     animation: mobileLinkReveal 0.35s ease both;
   }
+
 
   .nav-links.open li:nth-child(1) {
     animation-delay: 0.04s;
@@ -447,6 +484,7 @@
     animation-delay: 0.28s;
   }
 
+
   @keyframes mobileLinkReveal {
     from {
       opacity: 0;
@@ -473,6 +511,7 @@
     font-weight: 600;
   }
 
+
   .nav-links a:hover {
     transform: translateX(4px);
   }
@@ -489,6 +528,7 @@
 
     transform: none;
   }
+
 
   .nav-links a:hover::after,
   .nav-links a.active::after {
@@ -508,7 +548,20 @@
   }
 
 
-  /* Mobile menu position */
+  /* -----------------------------------------
+     MOBILE LOGO
+  ----------------------------------------- */
+
+  .logo img {
+    height: 50px;
+
+    max-width: 150px;
+  }
+
+
+  /* -----------------------------------------
+     MOBILE MENU
+  ----------------------------------------- */
 
   .nav-links {
     top: 65px;
@@ -521,15 +574,6 @@
   }
 
 
-  /* Logo */
-
-  .logo {
-    font-size: 24px;
-  }
-
-
-  /* Links */
-
   .nav-links a {
     padding: 10px 0;
 
@@ -537,12 +581,15 @@
   }
 
 
-  /* Menu button */
+  /* -----------------------------------------
+     MENU BUTTON
+  ----------------------------------------- */
 
   .menu-btn {
     width: 36px;
     height: 36px;
   }
+
 
   .menu-btn span {
     width: 23px;
@@ -564,9 +611,13 @@
     padding-right: 15px;
   }
 
-  .logo {
-    font-size: 22px;
+
+  .logo img {
+    height: 56px;
+
+    max-width: 135px;
   }
+
 
   .nav-links {
     width: calc(100% - 16px);
@@ -574,6 +625,7 @@
     padding-left: 14px;
     padding-right: 14px;
   }
+
 
   .nav-links a {
     padding: 9px 0;
@@ -598,6 +650,7 @@
 
   .nav-links a,
   .logo,
+  .logo img,
   .nav-links,
   .menu-btn span {
     transition: none;
