@@ -48,6 +48,7 @@
   box-sizing: border-box;
 }
 
+
 /* =========================================
    CONTENT
 ========================================= */
@@ -62,7 +63,7 @@
 ========================================= */
 
 .rk-hero-intro {
-  margin: 0 0 12px;
+  margin: 30px 0 12px;
 
   color: #00d9ff;
 
@@ -95,7 +96,6 @@
 
 /* =========================================
    ROLE BOX
-   Fixed height = NO LAYOUT JUMP
 ========================================= */
 
 .rk-role-box {
@@ -148,7 +148,7 @@
 
 
 /* =========================================
-   SMOOTH ROLE ANIMATION
+   ROLE ANIMATION
 ========================================= */
 
 @keyframes roleAppear {
@@ -222,7 +222,6 @@
   display: inline-flex;
 
   align-items: center;
-
   justify-content: center;
 
   min-height: 42px;
@@ -246,7 +245,7 @@
 
 
 /* =========================================
-   PRIMARY
+   PRIMARY BUTTON
 ========================================= */
 
 .rk-primary-btn {
@@ -269,7 +268,7 @@
 
 
 /* =========================================
-   SECONDARY
+   SECONDARY BUTTON
 ========================================= */
 
 .rk-secondary-btn {
@@ -292,7 +291,7 @@
 
 
 /* =========================================
-   SOCIAL
+   SOCIAL LINKS
 ========================================= */
 
 .rk-hero-socials {
@@ -327,16 +326,104 @@
 
 
 /* =========================================
-   PROFILE
+   PREMIUM PROFILE WRAPPER
 ========================================= */
 
 .rk-profile-wrapper {
+  position: relative;
+
   display: flex;
 
+  align-items: center;
   justify-content: center;
 
-  align-items: center;
   margin-top: 30px;
+
+  perspective: 1000px;
+}
+
+
+/* =========================================
+   OUTER GLOW
+========================================= */
+
+.rk-profile-wrapper::before {
+  content: "";
+
+  position: absolute;
+
+  width: 390px;
+  height: 390px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.16),
+      rgba(0, 217, 255, 0.06) 40%,
+      transparent 70%
+    );
+
+  filter: blur(20px);
+
+  animation:
+    profileGlow 4s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   ROTATING RING
+========================================= */
+
+.rk-profile-wrapper::after {
+  content: "";
+
+  position: absolute;
+
+  width: 370px;
+  height: 370px;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      from 0deg,
+
+      transparent 0deg,
+      transparent 45deg,
+
+      #00d9ff 90deg,
+
+      transparent 135deg,
+      transparent 215deg,
+
+      rgba(0, 217, 255, 0.75) 270deg,
+
+      transparent 320deg,
+      transparent 360deg
+    );
+
+  -webkit-mask:
+    radial-gradient(
+      farthest-side,
+      transparent calc(100% - 2px),
+      #000 calc(100% - 2px)
+    );
+
+  mask:
+    radial-gradient(
+      farthest-side,
+      transparent calc(100% - 2px),
+      #000 calc(100% - 2px)
+    );
+
+  animation:
+    profileRingRotate 8s linear infinite;
+
+  pointer-events: none;
 }
 
 
@@ -347,8 +434,9 @@
 .rk-profile-frame {
   position: relative;
 
-  width: 340px;
+  z-index: 2;
 
+  width: 340px;
   height: 340px;
 
   padding: 8px;
@@ -358,23 +446,44 @@
   background:
     linear-gradient(
       135deg,
-      #00d9ff,
-      rgba(0, 217, 255, 0.15)
+      #00d9ff 0%,
+      rgba(0, 217, 255, 0.5) 35%,
+      rgba(0, 217, 255, 0.08) 65%,
+      #00d9ff 100%
     );
 
   box-shadow:
-    0 0 35px rgba(0, 217, 255, 0.12);
+    0 0 25px rgba(0, 217, 255, 0.15),
+    0 0 60px rgba(0, 217, 255, 0.08);
+
+  animation:
+    profileFloat 5s ease-in-out infinite,
+    profilePulse 4s ease-in-out infinite;
 
   transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
+    transform 0.5s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    ),
+    box-shadow 0.5s ease;
 }
 
+
+/* =========================================
+   PROFILE HOVER
+========================================= */
+
 .rk-profile-frame:hover {
-  transform: translateY(-7px);
+  transform:
+    translateY(-10px)
+    scale(1.025);
 
   box-shadow:
-    0 0 50px rgba(0, 217, 255, 0.2);
+    0 0 30px rgba(0, 217, 255, 0.3),
+    0 0 80px rgba(0, 217, 255, 0.15),
+    0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
 
@@ -384,7 +493,6 @@
 
 .rk-profile-image {
   width: 100%;
-
   height: 100%;
 
   display: block;
@@ -396,6 +504,107 @@
   border-radius: 50%;
 
   border: 5px solid #101722;
+
+  transition:
+    transform 0.7s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    ),
+    filter 0.5s ease;
+}
+
+
+/* =========================================
+   IMAGE HOVER
+========================================= */
+
+.rk-profile-frame:hover .rk-profile-image {
+  transform: scale(1.035);
+
+  filter:
+    brightness(1.06)
+    contrast(1.03);
+}
+
+
+/* =========================================
+   PROFILE FLOAT
+========================================= */
+
+@keyframes profileFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+}
+
+
+/* =========================================
+   PROFILE GLOW PULSE
+========================================= */
+
+@keyframes profilePulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 25px rgba(0, 217, 255, 0.15),
+      0 0 60px rgba(0, 217, 255, 0.08);
+  }
+
+  50% {
+    box-shadow:
+      0 0 35px rgba(0, 217, 255, 0.22),
+      0 0 75px rgba(0, 217, 255, 0.12);
+  }
+
+}
+
+
+/* =========================================
+   ROTATING RING ANIMATION
+========================================= */
+
+@keyframes profileRingRotate {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================
+   OUTER GLOW ANIMATION
+========================================= */
+
+@keyframes profileGlow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.08);
+  }
+
 }
 
 
@@ -421,14 +630,25 @@
     font-size: 58px;
   }
 
+
+  /* Profile */
+
+  .rk-profile-wrapper::before {
+    width: 330px;
+    height: 330px;
+  }
+
+  .rk-profile-wrapper::after {
+    width: 320px;
+    height: 320px;
+  }
+
   .rk-profile-frame {
     width: 290px;
-
     height: 290px;
   }
 
 }
-
 
 /* =========================================
    MOBILE
@@ -439,26 +659,85 @@
   .rk-hero {
     min-height: auto;
 
-    padding: 70px 0;
+    /* Navbar se proper distance */
+    padding: 115px 0 70px;
+
+    overflow: hidden;
   }
 
   .rk-hero-container {
     grid-template-columns: 1fr;
 
-    gap: 50px;
+    gap: 45px;
 
     text-align: center;
+
+    /* navbar ke neeche content */
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .rk-hero-content {
     max-width: 100%;
   }
 
+
+  /* =========================================
+     PROFILE
+  ========================================= */
+
+  .rk-profile-wrapper {
+    order: -1;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-top: 15px;
+
+    /* navbar se extra safety */
+    padding-top: 10px;
+  }
+
+
+  .rk-profile-frame {
+    width: 250px;
+    height: 250px;
+
+    padding: 7px;
+
+    flex-shrink: 0;
+  }
+
+
+  .rk-profile-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+  }
+
+
+  /* =========================================
+     NAME
+  ========================================= */
+
   .rk-hero-name {
     font-size: 48px;
 
     letter-spacing: -2px;
   }
+
+
+  /* =========================================
+     ROLE
+  ========================================= */
 
   .rk-role-box {
     height: 45px;
@@ -473,6 +752,11 @@
 
     font-size: 28px;
   }
+
+
+  /* =========================================
+     ROLE ANIMATION
+  ========================================= */
 
   @keyframes roleAppear {
 
@@ -501,35 +785,41 @@
 
       filter: blur(0);
     }
-
   }
+
+
+  /* =========================================
+     DESCRIPTION
+  ========================================= */
 
   .rk-hero-description {
     margin-left: auto;
-
     margin-right: auto;
 
     font-size: 13px;
+
+    line-height: 1.8;
   }
+
+
+  /* =========================================
+     BUTTONS
+  ========================================= */
 
   .rk-hero-buttons {
     justify-content: center;
+
+    flex-wrap: wrap;
   }
+
+
+  /* =========================================
+     SOCIAL
+  ========================================= */
 
   .rk-hero-socials {
     justify-content: center;
   }
-
-  .rk-profile-wrapper {
-    order: -1;
-  }
-
-  .rk-profile-frame {
-    width: 250px;
-
-    height: 250px;
-  }
-
 }
 
 
@@ -540,12 +830,42 @@
 @media (max-width: 480px) {
 
   .rk-hero {
-    padding: 55px 0;
+    /* Navbar 65px hai, isliye extra top space */
+    padding: 100px 0 55px;
   }
+
+  .rk-hero-container {
+    gap: 38px;
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+
+  /* PROFILE */
+
+  .rk-profile-wrapper {
+    margin-top: 10px;
+
+    padding-top: 8px;
+  }
+
+  .rk-profile-frame {
+    width: 215px;
+    height: 215px;
+
+    padding: 6px;
+  }
+
+
+  /* NAME */
 
   .rk-hero-name {
     font-size: 40px;
   }
+
+
+  /* ROLE */
 
   .rk-role-box {
     height: 40px;
@@ -555,11 +875,17 @@
     font-size: 23px;
   }
 
+
+  /* DESCRIPTION */
+
   .rk-hero-description {
     font-size: 12px;
 
     line-height: 1.7;
   }
+
+
+  /* BUTTONS */
 
   .rk-hero-buttons {
     gap: 8px;
@@ -573,16 +899,12 @@
     font-size: 10px;
   }
 
+
+  /* SOCIAL */
+
   .rk-hero-socials {
     gap: 18px;
   }
-
-  .rk-profile-frame {
-    width: 215px;
-
-    height: 215px;
-  }
-
 }
 
 
@@ -592,18 +914,25 @@
 
 @media (max-width: 350px) {
 
+  .rk-hero {
+    padding: 95px 0 45px;
+  }
+
+  .rk-hero-container {
+    gap: 32px;
+  }
+
+  .rk-profile-frame {
+    width: 190px;
+    height: 190px;
+  }
+
   .rk-hero-name {
     font-size: 35px;
   }
 
   .rk-hero-title {
     font-size: 20px;
-  }
-
-  .rk-profile-frame {
-    width: 190px;
-
-    height: 190px;
   }
 
   .rk-hero-buttons {
@@ -615,24 +944,4 @@
   .rk-btn {
     width: 100%;
   }
-
-}
-
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .rk-hero-title {
-    animation: none !important;
-  }
-
-  .rk-hero *,
-  .rk-hero::before,
-  .rk-hero::after {
-    transition: none !important;
-  }
-
 }
