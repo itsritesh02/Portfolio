@@ -9,13 +9,12 @@ dotenv.config();
 
 const app = express();
 
-// Database
 connectDB();
 
-// CORS
 const allowedOrigins = [
   "http://localhost:5173",
   "https://portfolio-yq6c.vercel.app",
+  "https://portfolio-yq6c-git-main-itsritesh02-9921s-projects.vercel.app",
 ];
 
 app.use(
@@ -29,7 +28,6 @@ app.use(
 
 app.use(express.json());
 
-// Test route
 app.get("/", (req, res) => {
   res.json({
     success: true,
@@ -37,10 +35,8 @@ app.get("/", (req, res) => {
   });
 });
 
-// Contact route
 app.use("/api/contact", contactRoutes);
 
-// Local server
 const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV !== "production") {
