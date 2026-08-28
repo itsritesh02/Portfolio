@@ -1,24 +1,16 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-
 import contactRoutes from "./routes/contactRoutes.js";
 
 dotenv.config();
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://portfolio-yq6c.vercel.app",
-];
-
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: ["http://localhost:5173", "https://portfolio-yq6c.vercel.app"],
     credentials: true,
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
 
