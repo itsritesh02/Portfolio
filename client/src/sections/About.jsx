@@ -20,8 +20,7 @@ const About = () => {
           <div className="about-content">
 
             <p>
-              I'm Ritesh Kumar, a MERN Stack Developer focused on building
-              modern, responsive and user-friendly web applications.
+              I’m a MERN Stack Developer with professional experience in building responsive and scalable web applications using React.js, Node.js, Express.js, and MongoDB. I also specialize in WordPress development and customization.
             </p>
 
             <p>

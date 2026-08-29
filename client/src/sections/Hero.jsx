@@ -56,12 +56,8 @@ const Hero = () => {
           ================================= */}
 
           <p className="rk-hero-description">
-            I’m a MERN Stack Developer with 1-2 years of experience
-            building responsive, scalable, and user-focused web
-            applications using React.js, Node.js, Express.js, and MongoDB.
-            I also specialize in developing and customizing modern
-            WordPress websites, delivering clean, high-performance digital
-            solutions tailored to business needs.
+            I’m a MERN Stack Developer with hands-on professional experience in building responsive, scalable, and user-focused web applications using React.js, Node.js, Express.js, and MongoDB. I also specialize in developing and customizing modern WordPress websites, delivering clean, high-performance digital solutions tailored to business needs.
+
           </p>
 
           {/* =================================
