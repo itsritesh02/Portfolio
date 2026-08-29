@@ -107,9 +107,19 @@ const Contact = () => {
 
                 <div>
                   <span>Email</span>
-
                   <a href="mailto:itsritesh02@gmail.com">
                     itsritesh02@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="contact-detail">
+                <div className="contact-detail-icon">☎</div>
+
+                <div>
+                  <span>Phone</span>
+                  <a href="tel:+918252987877">
+                    +91 82529 57877
                   </a>
                 </div>
               </div>
@@ -121,7 +131,6 @@ const Contact = () => {
 
                 <div>
                   <span>Location</span>
-
                   <strong>
                     Zirakpur, Punjab
                   </strong>
@@ -135,7 +144,6 @@ const Contact = () => {
 
                 <div>
                   <span>Availability</span>
-
                   <strong>
                     Open to opportunities
                   </strong>
